@@ -6,7 +6,7 @@
 
 
 int main() {
-
+    int help;
     PlayCode code = 1;
     Figure figure = 0;
     int area_x = 10;
@@ -23,7 +23,8 @@ int main() {
 
     while (code != EXIT) {
         if (code == CHANGE_FIGURE) {
-            scanf("%d", &figure);
+            scanf("%d", &help);
+            figure = help;
             figure_location.figure = figure;
             start_coordinates(&figure_location);
         }
@@ -39,8 +40,8 @@ int main() {
         change_area(&area, &figure_location);
         draw_area(&area);
 
-        scanf("%d", &code);
-
+        scanf("%d", &help);
+        code = help;
     }
     
 
