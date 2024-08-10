@@ -40,7 +40,7 @@ typedef struct {
 
 
 typedef struct {
-  int** field;  // free = 0
+  int field[12][22];  // free = 0
   int x;        // shirina + bortiki
   int y;        // visota + bortiki
 } Area;
@@ -58,5 +58,6 @@ void start_coordinates(Figure_location* figure_location);
 void start_area(Area* area);
 
 void change_area(Area* area, Figure_location* figure_location);
+void clean_old_down(Area* area, Figure_location* figure);
 
 #endif

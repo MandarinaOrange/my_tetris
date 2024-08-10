@@ -201,11 +201,15 @@ int can_move_left_right(int direction, Figure_location* figure_location,
 
 int move_down(Figure_location* figure_location, Area* area) {
   int result = can_move(figure_location, area);
+
+
   if (!result) {
     for (int i = 0; i < 4; i++) {
       figure_location->coordinates[i][1]++;
     }
   }
+  change_area(area, figure_location);
+  clean_old_down(area, figure_location);
   return result;
 }
 
@@ -314,16 +318,25 @@ void start_coordinates(Figure_location* figure_location) {
 }
 
 void start_area(Area* area) {
+
   for (int i = 0; i < area->x; i++) {
     area->field[i][0] = BORTIK;
-    area->field[i][area->y] = BORTIK;
+    area->field[i][area->y-1] = BORTIK;
   }
   for (int i = 0; i < area->y; i++) {
     area->field[0][i] = BORTIK;
-    area->field[area->x][i] = BORTIK;
+    area->field[area->x-1][i] = BORTIK;
+  }
+  for (int i = 1; i < area->x-1; i++) {
+    for (int j = 1; j < area->y-1; j++) {
+      area->field[i][j] = FREE;
+    }
   }
 }
 
+
+
+//после того как изменили координаты нахождения фигурки, нужно поменять цвет поля в этих координатах на цвет этой фигурки
 void change_area(Area* area, Figure_location* figure_location) {
   area->field[figure_location->coordinates[0][0]]
              [figure_location->coordinates[0][1]] = figure_location->color;
@@ -333,4 +346,51 @@ void change_area(Area* area, Figure_location* figure_location) {
              [figure_location->coordinates[2][1]] = figure_location->color;
   area->field[figure_location->coordinates[3][0]]
              [figure_location->coordinates[3][1]] = figure_location->color;
+}
+
+//-----------------------FIGURES----------------------------------
+//             1          4      12      34     4        12
+//   1234      234      123      34     12     123        34
+//----------------------------------------------------------------
+void clean_old_down(Area* area, Figure_location* figure) {
+  switch (figure->figure)
+  {
+  case PALKA:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[1][0]][figure->coordinates[1][1]-1] = FREE;
+    area->field[figure->coordinates[2][0]][figure->coordinates[2][1]-1] = FREE;
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+    break;
+  case UGOL_G:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[2][0]][figure->coordinates[2][1]-1] = FREE;
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+    break;
+  case UGOL_L:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[1][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+    break;
+  case KVADRAT:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[1][0]][figure->coordinates[1][1]-1] = FREE;
+    break;
+  case VVERH:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[2][0]][figure->coordinates[2][1]-1] = FREE;
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+    break;
+  case FUCK:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[2][0]][figure->coordinates[2][1]-1] = FREE;
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+    break;
+  case VNIZ:
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+    area->field[figure->coordinates[1][0]][figure->coordinates[1][1]-1] = FREE;
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+    break;
+  default:
+    break;
+  }
 }

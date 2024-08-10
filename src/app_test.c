@@ -9,8 +9,8 @@ int main() {
     int help;
     PlayCode code = 1;
     Figure figure = 0;
-    int area_x = 10;
-    int area_y = 20;
+    int area_x = 12;
+    int area_y = 22;
     
     Area area;
     area.x = area_x;
@@ -19,9 +19,14 @@ int main() {
 
     Figure_location figure_location;
     figure_location.color = VIOLET;
+    figure_location.figure = PALKA;
+    start_coordinates(&figure_location);
+
+    draw_area(&area);
 
 
     while (code != EXIT) {
+        printf("OK\n");
         if (code == CHANGE_FIGURE) {
             scanf("%d", &help);
             figure = help;
@@ -37,7 +42,7 @@ int main() {
             code = 1 + move_right(&figure_location, &area);
         } 
 
-        change_area(&area, &figure_location);
+        //change_area(&area, &figure_location);
         draw_area(&area);
 
         scanf("%d", &help);

@@ -9,6 +9,6 @@ void draw_area(Area* area) {
         printf("%d", area->field[i][j]);
       }
     }
-    if (j < area->y - 1) printf("\n");
+    printf("\n");
   }
 }
