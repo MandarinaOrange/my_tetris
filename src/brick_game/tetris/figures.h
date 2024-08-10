@@ -10,7 +10,7 @@ typedef enum {
   FUCK = 5,     // .:.
   VNIZ = 6      // ':.
 
-} Figure;
+} Figure_type;
 
 typedef enum {
   FREE = 0,
@@ -24,11 +24,20 @@ typedef enum {
   BORTIK = 8
 } Color;
 
+typedef enum {
+  UP = 0,
+  RIGHT = 1,
+  DOWN = 2,
+  LEFT = 3
+} Rotation;
+
 typedef struct {
-  Figure figure;
+  Figure_type type;
   int coordinates[4][2];  // 4 kletki po 2 koordinati //x y
   Color color;
-} Figure_location;
+  Rotation rotation;
+} Figure;
+
 
 //-----------------------FIGURES----------------------------------
 //             1          4      12      34     4        12
@@ -47,17 +56,34 @@ typedef struct {
 
 
 
-int can_move(Figure_location* figure_location, Area* area);
-int can_move_left_right(int direction, Figure_location* figure_location, Area* area);
+int can_move(Figure* figure_location, Area* area);
+int can_move_left_right(int direction, Figure* figure_location, Area* area);
 
-int move_down(Figure_location* figure_location, Area* area);
-int move_left(Figure_location* figure_location, Area* area);
-int move_right(Figure_location* figure_location, Area* area);
+int move_down(Figure* figure_location, Area* area);
+int move_left(Figure* figure_location, Area* area);
+int move_right(Figure* figure_location, Area* area);
 
-void start_coordinates(Figure_location* figure_location);
+void start_coordinates(Figure* figure_location);
 void start_area(Area* area);
 
-void change_area(Area* area, Figure_location* figure_location);
-void clean_old_down(Area* area, Figure_location* figure);
+void change_area(Area* area, Figure* figure_location);
+void clean_old_down(Area* area, Figure* figure);
+
+
+//--------------PALKA----------------
+void start_palka(Figure* figure);
+int move_down_palka(Area* area, Figure* figure);
+int can_move_down_palka(Area* area, Figure* figure);
+void move_left_palka(Area* area, Figure* figure);
+int can_move_left_palka(Area* area, Figure* figure);
+void move_right_palka(Area* area, Figure* figure);
+int can_move_right_palka(Area* area, Figure* figure);
+
+
+//-------------UGOL_G-------------------
+
+
+
+
 
 #endif

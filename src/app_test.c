@@ -8,20 +8,22 @@
 int main() {
     int help;
     PlayCode code = 1;
-    Figure figure = 0;
     int area_x = 12;
     int area_y = 22;
     
+
+    Figure figure;
+    figure.type = PALKA;
+    figure.color = VIOLET;
+    figure.rotation = UP;
+    start_coordinates(&figure);
+
     Area area;
-    area.x = area_x;
-    area.y = area_y;
+    area.x = 12;
+    area.y = 22;
     start_area(&area);
-
-    Figure_location figure_location;
-    figure_location.color = VIOLET;
-    figure_location.figure = PALKA;
-    start_coordinates(&figure_location);
-
+    start_palka(&figure);
+    change_area(&area, &figure);
     draw_area(&area);
 
 
@@ -29,24 +31,24 @@ int main() {
         printf("OK\n");
         if (code == CHANGE_FIGURE) {
             scanf("%d", &help);
-            figure = help;
-            figure_location.figure = figure;
-            start_coordinates(&figure_location);
+            figure.type = help;
+            start_palka(&figure);
+            change_area(&area, &figure);
         }
 
-        if (code == DOWN) {
-            code = 1 + move_down(&figure_location, &area);
-        } else if (code == LEFT) {
-            code = 1 + move_left(&figure_location, &area);
-        } else if (code == RIGHT) {
-            code = 1 + move_right(&figure_location, &area);
+        if (code == MOVE_DOWN) {
+            move_down_palka(&area, &figure);
+        } else if (code == MOVE_LEFT) {
+            move_left_palka(&area, &figure);
+        } else if (code == MOVE_RIGHT) {
+            move_right_palka(&area, &figure);
         } 
 
         //change_area(&area, &figure_location);
         draw_area(&area);
 
-        scanf("%d", &help);
-        code = help;
+        scanf("%d", &code);
+        //code = help;
     }
     
 
