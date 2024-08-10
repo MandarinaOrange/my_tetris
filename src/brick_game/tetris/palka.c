@@ -11,7 +11,6 @@ void start_palka(Figure* figure) {
   figure->coordinates[3][1] = 0;
 
   figure->rotation = UP;
-  
 }
 
 void clean_old_palka_down(Area* area, Figure* figure) {
@@ -48,13 +47,15 @@ void clean_old_palka_left(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
     case DOWN:
-      area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]] =
+          FREE;
       break;
     case RIGHT:
     case LEFT:
-    for (int i = 0; i < 4; i++) {
-      area->field[figure->coordinates[i][0]+1][figure->coordinates[i][1]] = FREE;
-    }
+      for (int i = 0; i < 4; i++) {
+        area->field[figure->coordinates[i][0] + 1][figure->coordinates[i][1]] =
+            FREE;
+      }
       break;
 
     default:
@@ -66,13 +67,15 @@ void clean_old_palka_right(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
     case DOWN:
-      area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]] = FREE;
+      area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]] =
+          FREE;
       break;
     case RIGHT:
     case LEFT:
-    for (int i = 0; i < 4; i++) {
-      area->field[figure->coordinates[i][0]-1][figure->coordinates[i][1]] = FREE;
-    }
+      for (int i = 0; i < 4; i++) {
+        area->field[figure->coordinates[i][0] - 1][figure->coordinates[i][1]] =
+            FREE;
+      }
       break;
 
     default:
@@ -104,14 +107,12 @@ int can_move_left_palka(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
     case DOWN:
-      a =
-          area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
+      a = area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
       if (a == FREE) result = 0;
       break;
     case RIGHT:
     case LEFT:
-      a =
-          area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
+      a = area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
       Color b =
           area->field[figure->coordinates[1][0] - 1][figure->coordinates[1][1]];
       Color c =
@@ -147,14 +148,12 @@ int can_move_right_palka(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
     case DOWN:
-      a =
-          area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]];
+      a = area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]];
       if (a == FREE) result = 0;
       break;
     case RIGHT:
     case LEFT:
-      a =
-          area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]];
+      a = area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]];
       Color b =
           area->field[figure->coordinates[1][0] + 1][figure->coordinates[1][1]];
       Color c =
@@ -187,25 +186,22 @@ int move_down_palka(Area* area, Figure* figure) {
 int can_move_down_palka(Area* area, Figure* figure) {
   int result = 1;
 
-
   switch (figure->rotation) {
     Color a;
     case RIGHT:
     case LEFT:
-      a =
-          area->field[figure->coordinates[3][0]][figure->coordinates[3][1]+1];
+      a = area->field[figure->coordinates[3][0]][figure->coordinates[3][1] + 1];
       if (a == FREE) result = 0;
       break;
     case UP:
     case DOWN:
-      a =
-          area->field[figure->coordinates[0][0]][figure->coordinates[0][1]+1];
+      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1] + 1];
       Color b =
-          area->field[figure->coordinates[1][0]][figure->coordinates[1][1]+1];
+          area->field[figure->coordinates[1][0]][figure->coordinates[1][1] + 1];
       Color c =
-          area->field[figure->coordinates[2][0]][figure->coordinates[2][1]+1];
+          area->field[figure->coordinates[2][0]][figure->coordinates[2][1] + 1];
       Color d =
-          area->field[figure->coordinates[3][0]][figure->coordinates[3][1]+1];
+          area->field[figure->coordinates[3][0]][figure->coordinates[3][1] + 1];
       if (!a && !b && !c && !d) result = 0;
       break;
 
@@ -215,4 +211,3 @@ int can_move_down_palka(Area* area, Figure* figure) {
 
   return result;
 }
-

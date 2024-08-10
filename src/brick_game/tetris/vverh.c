@@ -1,6 +1,5 @@
 #include "figures.h"
 
-
 /*
 void start_vverh(Figure* figure) {
   figure->coordinates[0][0] = 3;

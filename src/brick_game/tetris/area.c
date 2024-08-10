@@ -3,14 +3,14 @@
 //после того как изменили координаты нахождения фигурки, нужно поменять цвет
 //поля в этих координатах на цвет этой фигурки
 void change_area(Area* area, Figure* figure) {
-  area->field[figure->coordinates[0][0]]
-             [figure->coordinates[0][1]] = figure->color;
-  area->field[figure->coordinates[1][0]]
-             [figure->coordinates[1][1]] = figure->color;
-  area->field[figure->coordinates[2][0]]
-             [figure->coordinates[2][1]] = figure->color;
-  area->field[figure->coordinates[3][0]]
-             [figure->coordinates[3][1]] = figure->color;
+  area->field[figure->coordinates[0][0]][figure->coordinates[0][1]] =
+      figure->color;
+  area->field[figure->coordinates[1][0]][figure->coordinates[1][1]] =
+      figure->color;
+  area->field[figure->coordinates[2][0]][figure->coordinates[2][1]] =
+      figure->color;
+  area->field[figure->coordinates[3][0]][figure->coordinates[3][1]] =
+      figure->color;
 }
 
 void start_area(Area* area) {
@@ -58,46 +58,46 @@ void start_coordinates(Figure* figure) {
       figure->coordinates[3][0] = 5;
       figure->coordinates[3][1] = -1;
       break;
-    /*ase KVADRAT:
-      figure_location->coordinates[0][0] = 3;
-      figure_location->coordinates[0][1] = -1;
-      figure_location->coordinates[1][0] = 4;
-      figure_location->coordinates[1][1] = -1;
-      figure_location->coordinates[2][0] = 3;
-      figure_location->coordinates[2][1] = 0;
-      figure_location->coordinates[3][0] = 4;
-      figure_location->coordinates[3][1] = 0;
-      break;
-    case VVERH:
-      figure_location->coordinates[0][0] = 3;
-      figure_location->coordinates[0][1] = 0;
-      figure_location->coordinates[1][0] = 4;
-      figure_location->coordinates[1][1] = 0;
-      figure_location->coordinates[2][0] = 4;
-      figure_location->coordinates[2][1] = -1;
-      figure_location->coordinates[3][0] = 5;
-      figure_location->coordinates[3][1] = -1;
-      break;
-    case FUCK:
-      figure_location->coordinates[0][0] = 3;
-      figure_location->coordinates[0][1] = 0;
-      figure_location->coordinates[1][0] = 4;
-      figure_location->coordinates[1][1] = 0;
-      figure_location->coordinates[2][0] = 5;
-      figure_location->coordinates[2][1] = 0;
-      figure_location->coordinates[3][0] = 4;
-      figure_location->coordinates[3][1] = -1;
-      break;
-    case VNIZ:
-      figure_location->coordinates[0][0] = 3;
-      figure_location->coordinates[0][1] = -1;
-      figure_location->coordinates[1][0] = 4;
-      figure_location->coordinates[1][1] = -1;
-      figure_location->coordinates[2][0] = 4;
-      figure_location->coordinates[2][1] = 0;
-      figure_location->coordinates[3][0] = 5;
-      figure_location->coordinates[3][1] = 0;
-      break;*/
+      /*ase KVADRAT:
+        figure_location->coordinates[0][0] = 3;
+        figure_location->coordinates[0][1] = -1;
+        figure_location->coordinates[1][0] = 4;
+        figure_location->coordinates[1][1] = -1;
+        figure_location->coordinates[2][0] = 3;
+        figure_location->coordinates[2][1] = 0;
+        figure_location->coordinates[3][0] = 4;
+        figure_location->coordinates[3][1] = 0;
+        break;
+      case VVERH:
+        figure_location->coordinates[0][0] = 3;
+        figure_location->coordinates[0][1] = 0;
+        figure_location->coordinates[1][0] = 4;
+        figure_location->coordinates[1][1] = 0;
+        figure_location->coordinates[2][0] = 4;
+        figure_location->coordinates[2][1] = -1;
+        figure_location->coordinates[3][0] = 5;
+        figure_location->coordinates[3][1] = -1;
+        break;
+      case FUCK:
+        figure_location->coordinates[0][0] = 3;
+        figure_location->coordinates[0][1] = 0;
+        figure_location->coordinates[1][0] = 4;
+        figure_location->coordinates[1][1] = 0;
+        figure_location->coordinates[2][0] = 5;
+        figure_location->coordinates[2][1] = 0;
+        figure_location->coordinates[3][0] = 4;
+        figure_location->coordinates[3][1] = -1;
+        break;
+      case VNIZ:
+        figure_location->coordinates[0][0] = 3;
+        figure_location->coordinates[0][1] = -1;
+        figure_location->coordinates[1][0] = 4;
+        figure_location->coordinates[1][1] = -1;
+        figure_location->coordinates[2][0] = 4;
+        figure_location->coordinates[2][1] = 0;
+        figure_location->coordinates[3][0] = 5;
+        figure_location->coordinates[3][1] = 0;
+        break;*/
 
     default:
       break;
