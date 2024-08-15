@@ -70,6 +70,13 @@ void change_area(Area* area, Figure* figure_location);
 void clean_old_down(Area* area, Figure* figure);
 
 
+//--------------ROTATION--------------------
+void change_rotate_right(Figure* figure);
+void change_rotate_left(Figure* figure);
+void test_rotate_right(Figure* figure, Figure* test_figure);
+void test_rotate_left(Figure* figure, Figure* test_figure);
+
+
 //--------------PALKA----------------
 void start_palka(Figure* figure);
 int move_down_palka(Area* area, Figure* figure);

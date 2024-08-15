@@ -64,18 +64,18 @@ void start_coordinates(Figure* figure) {
     case UGOL_L:
       start_ugol_l(figure);
       break;
-      case KVADRAT:
-        start_kvadrat(figure);
-        break;
-      case VVERH:
+    case KVADRAT:
+      start_kvadrat(figure);
+      break;
+    case VVERH:
 
-        break;
-      case FUCK:
+      break;
+    case FUCK:
 
-        break;
-      case VNIZ:
+      break;
+    case VNIZ:
 
-        break;
+      break;
 
     default:
       break;
@@ -161,4 +161,100 @@ void move_right(Area* area, Figure* figure) {
     default:
       break;
   }
+}
+
+void change_rotate_right(Figure* figure) {
+  switch (figure->rotation) {
+    case UP:
+      figure->rotation = RIGHT;
+      break;
+    case RIGHT:
+      figure->rotation = DOWN;
+      break;
+    case DOWN:
+      figure->rotation = LEFT;
+      break;
+    case LEFT:
+      figure->rotation = UP;
+      break;
+
+    default:
+      break;
+  }
+}
+
+void change_rotate_left(Figure* figure) {
+  switch (figure->rotation) {
+    case UP:
+      figure->rotation = LEFT;
+      break;
+    case LEFT:
+      figure->rotation = DOWN;
+      break;
+    case DOWN:
+      figure->rotation = RIGHT;
+      break;
+    case RIGHT:
+      figure->rotation = UP;
+      break;
+
+    default:
+      break;
+  }
+}
+
+// делаем тестовую фигуру, чтобы посмотреть, не впишется ли она во что-то (в
+// текстуру)
+void test_rotate_right(Figure* figure, Figure* test_figure) {
+  /*switch (figure->type) {
+  case PALKA:
+    move_right_palka(area, figure);
+    break;
+  case UGOL_G:
+    move_right_ugol_g(area, figure);
+    break;
+  case UGOL_L:
+    move_right_ugol_l(area, figure);
+    break;
+  case KVADRAT:
+    move_right_kvadrat(area, figure);
+    break;
+  case VVERH:
+
+    break;
+  case FUCK:
+
+    break;
+  case VNIZ:
+
+  default:
+    break;
+}*/
+}
+
+void test_rotate_left(Figure* figure, Figure* test_figure) {
+  /*switch (figure->type) {
+  case PALKA:
+    move_right_palka(area, figure);
+    break;
+  case UGOL_G:
+    move_right_ugol_g(area, figure);
+    break;
+  case UGOL_L:
+    move_right_ugol_l(area, figure);
+    break;
+  case KVADRAT:
+    move_right_kvadrat(area, figure);
+    break;
+  case VVERH:
+
+    break;
+  case FUCK:
+
+    break;
+  case VNIZ:
+
+  default:
+    break;
+}*/
 }
