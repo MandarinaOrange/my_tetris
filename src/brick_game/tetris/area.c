@@ -3,14 +3,34 @@
 //после того как изменили координаты нахождения фигурки, нужно поменять цвет
 //поля в этих координатах на цвет этой фигурки
 void change_area(Area* area, Figure* figure) {
-  area->field[figure->coordinates[0][0]][figure->coordinates[0][1]] =
-      figure->color;
-  area->field[figure->coordinates[1][0]][figure->coordinates[1][1]] =
-      figure->color;
-  area->field[figure->coordinates[2][0]][figure->coordinates[2][1]] =
-      figure->color;
-  area->field[figure->coordinates[3][0]][figure->coordinates[3][1]] =
-      figure->color;
+  int a, b, c, d;
+  a = figure->coordinates[0][1];
+  b = figure->coordinates[1][1];
+  c = figure->coordinates[2][1];
+  d = figure->coordinates[3][1];
+  if (a >= 0)
+    area->field[figure->coordinates[0][0]][figure->coordinates[0][1]] =
+        figure->color;
+  if (b >= 0)
+    area->field[figure->coordinates[1][0]][figure->coordinates[1][1]] =
+        figure->color;
+  if (c >= 0)
+    area->field[figure->coordinates[2][0]][figure->coordinates[2][1]] =
+        figure->color;
+  if (d >= 0)
+    area->field[figure->coordinates[3][0]][figure->coordinates[3][1]] =
+        figure->color;
+
+  if (a == 2 || b == 2 || c == 2 || d == 2) {
+    for (int i = 0; i < area->x; i++) {
+      area->field[i][0] = BORTIK;
+      area->field[i][area->y - 1] = BORTIK;
+    }
+    for (int i = 0; i < area->y; i++) {
+      area->field[0][i] = BORTIK;
+      area->field[area->x - 1][i] = BORTIK;
+    }
+  }
 }
 
 void start_area(Area* area) {
@@ -97,7 +117,7 @@ void start_coordinates(Figure* figure) {
   }
 }
 
-int move_down(Figure* figure, Area* area) {
+void move_down(Area* area, Figure* figure) {
   switch (figure->type) {
     case PALKA:
       move_down_palka(area, figure);
@@ -118,13 +138,12 @@ int move_down(Figure* figure, Area* area) {
         break;
       case VNIZ:*/
 
-
     default:
       break;
   }
 }
 
-void move_left(Figure* figure, Area* area) {
+void move_left(Area* area, Figure* figure) {
   switch (figure->type) {
     case PALKA:
       move_left_palka(area, figure);
@@ -145,13 +164,12 @@ void move_left(Figure* figure, Area* area) {
         break;
       case VNIZ:*/
 
-
     default:
       break;
   }
 }
 
-void move_right(Figure* figure, Area* area) {
+void move_right(Area* area, Figure* figure) {
   switch (figure->type) {
     case PALKA:
       move_right_palka(area, figure);
@@ -171,7 +189,6 @@ void move_right(Figure* figure, Area* area) {
 
         break;
       case VNIZ:*/
-
 
     default:
       break;

@@ -1,6 +1,5 @@
 #include "figures.h"
 
-
 void start_ugol_g(Figure* figure) {
   figure->coordinates[0][0] = 4;
   figure->coordinates[0][1] = -1;
@@ -17,22 +16,32 @@ void start_ugol_g(Figure* figure) {
 void clean_old_ugol_g_down(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
-      area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
-      area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
-      area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
+      area->field[figure->coordinates[0][0]][figure->coordinates[0][1] - 1] =
+          FREE;
+      area->field[figure->coordinates[2][0]][figure->coordinates[2][1] - 1] =
+          FREE;
+      area->field[figure->coordinates[3][0]][figure->coordinates[3][1] - 1] =
+          FREE;
       break;
     case RIGHT:
-      area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
-      area->field[figure->coordinates[1][0]][figure->coordinates[1][1]-1] = FREE;
+      area->field[figure->coordinates[0][0]][figure->coordinates[0][1] - 1] =
+          FREE;
+      area->field[figure->coordinates[1][0]][figure->coordinates[1][1] - 1] =
+          FREE;
       break;
     case DOWN:
-      area->field[figure->coordinates[1][0]][figure->coordinates[1][1]-1] = FREE;
-      area->field[figure->coordinates[2][0]][figure->coordinates[2][1]-1] = FREE;
-      area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+      area->field[figure->coordinates[1][0]][figure->coordinates[1][1] - 1] =
+          FREE;
+      area->field[figure->coordinates[2][0]][figure->coordinates[2][1] - 1] =
+          FREE;
+      area->field[figure->coordinates[3][0]][figure->coordinates[3][1] - 1] =
+          FREE;
       break;
     case LEFT:
-      area->field[figure->coordinates[0][0]][figure->coordinates[0][1]-1] = FREE;
-      area->field[figure->coordinates[3][0]][figure->coordinates[3][1]-1] = FREE;
+      area->field[figure->coordinates[0][0]][figure->coordinates[0][1] - 1] =
+          FREE;
+      area->field[figure->coordinates[3][0]][figure->coordinates[3][1] - 1] =
+          FREE;
       break;
 
     default:
@@ -47,22 +56,32 @@ void clean_old_ugol_g_down(Area* area, Figure* figure) {
 void clean_old_ugol_g_left(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
-      area->field[figure->coordinates[0][0]+1][figure->coordinates[0][1]] = FREE;
-      area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]] =
+          FREE;
+      area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]] =
+          FREE;
       break;
     case RIGHT:
-      area->field[figure->coordinates[0][0]+1][figure->coordinates[0][1]] = FREE;
-      area->field[figure->coordinates[2][0]+1][figure->coordinates[2][1]] = FREE;
-      area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]] =
+          FREE;
+      area->field[figure->coordinates[2][0] + 1][figure->coordinates[2][1]] =
+          FREE;
+      area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]] =
+          FREE;
       break;
     case DOWN:
-      area->field[figure->coordinates[0][0]+1][figure->coordinates[0][1]] = FREE;
-      area->field[figure->coordinates[1][0]+1][figure->coordinates[1][1]] = FREE;
+      area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]] =
+          FREE;
+      area->field[figure->coordinates[1][0] + 1][figure->coordinates[1][1]] =
+          FREE;
       break;
     case LEFT:
-      area->field[figure->coordinates[1][0]+1][figure->coordinates[1][1]] = FREE;
-      area->field[figure->coordinates[2][0]+1][figure->coordinates[2][1]] = FREE;
-      area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[1][0] + 1][figure->coordinates[1][1]] =
+          FREE;
+      area->field[figure->coordinates[2][0] + 1][figure->coordinates[2][1]] =
+          FREE;
+      area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]] =
+          FREE;
       break;
 
     default:
@@ -70,26 +89,35 @@ void clean_old_ugol_g_left(Area* area, Figure* figure) {
   }
 }
 
-
 void clean_old_ugol_g_right(Area* area, Figure* figure) {
   switch (figure->rotation) {
     case UP:
-      area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]] = FREE;
-      area->field[figure->coordinates[3][0]-1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]] =
+          FREE;
+      area->field[figure->coordinates[1][0] - 1][figure->coordinates[1][1]] =
+          FREE;
       break;
     case RIGHT:
-      area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]] = FREE;
-      area->field[figure->coordinates[2][0]-1][figure->coordinates[2][1]] = FREE;
-      area->field[figure->coordinates[3][0]-1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[1][0] - 1][figure->coordinates[1][1]] =
+          FREE;
+      area->field[figure->coordinates[2][0] - 1][figure->coordinates[2][1]] =
+          FREE;
+      area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]] =
+          FREE;
       break;
     case DOWN:
-      area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]] = FREE;
-      area->field[figure->coordinates[1][0]-1][figure->coordinates[1][1]] = FREE;
+      area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]] =
+          FREE;
+      area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]] =
+          FREE;
       break;
     case LEFT:
-      area->field[figure->coordinates[1][0]-1][figure->coordinates[1][1]] = FREE;
-      area->field[figure->coordinates[2][0]-1][figure->coordinates[2][1]] = FREE;
-      area->field[figure->coordinates[3][0]-1][figure->coordinates[3][1]] = FREE;
+      area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]] =
+          FREE;
+      area->field[figure->coordinates[2][0] - 1][figure->coordinates[2][1]] =
+          FREE;
+      area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]] =
+          FREE;
       break;
 
     default:
@@ -98,48 +126,48 @@ void clean_old_ugol_g_right(Area* area, Figure* figure) {
 }
 
 void move_left_ugol_g(Area* area, Figure* figure) {
-  int code = can_move_down_ugol_g(area, figure);
+  int code = can_move_left_ugol_g(area, figure);
 
   if (code == 0) {
     for (int i = 0; i < 4; i++) {
       figure->coordinates[i][0]--;
     }
     change_area(area, figure);
-    clean_old_ugol_g_right(area, figure);
+    clean_old_ugol_g_left(area, figure);
   }
 }
 
 int can_move_left_ugol_g(Area* area, Figure* figure) {
-  Color a, b;
+  Color a, b, c;
   int result = 1;
   switch (figure->rotation) {
-    case UP: 
-      a = area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[1][0]-1][figure->coordinates[1][1]];
+    case UP:
+      a = area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
+      b = area->field[figure->coordinates[1][0] - 1][figure->coordinates[1][1]];
       if (a == FREE && b == FREE) {
         result = 0;
       }
       break;
     case RIGHT:
-      a = area->field[figure->coordinates[1][0]-1][figure->coordinates[1][1]];
-      b = area->field[figure->coordinates[2][0]-1][figure->coordinates[2][1]];
-      Color c = area->field[figure->coordinates[3][0]-1][figure->coordinates[3][1]];
-      if (a ==FREE && b == FREE && c == FREE) {
+      a = area->field[figure->coordinates[1][0] - 1][figure->coordinates[1][1]];
+      b = area->field[figure->coordinates[2][0] - 1][figure->coordinates[2][1]];
+      c = area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]];
+      if (a == FREE && b == FREE && c == FREE) {
         result = 0;
       }
       break;
     case DOWN:
-      a = area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[3][0]-1][figure->coordinates[3][1]];
+      a = area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
+      b = area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]];
       if (a == FREE && b == FREE) {
         result = 0;
-      }   
+      }
       break;
     case LEFT:
-      a = area->field[figure->coordinates[0][0]-1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[2][0]-1][figure->coordinates[2][1]];
-      Color c = area->field[figure->coordinates[3][0]-1][figure->coordinates[3][1]];
-      if (a ==FREE && b == FREE && c == FREE) {
+      a = area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
+      b = area->field[figure->coordinates[2][0] - 1][figure->coordinates[2][1]];
+      c = area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]];
+      if (a == FREE && b == FREE && c == FREE) {
         result = 0;
       }
       break;
@@ -150,10 +178,8 @@ int can_move_left_ugol_g(Area* area, Figure* figure) {
   return result;
 }
 
-
-
 void move_right_ugol_g(Area* area, Figure* figure) {
-  int code = can_move_down_ugol_g(area, figure);
+  int code = can_move_right_ugol_g(area, figure);
 
   if (code == 0) {
     for (int i = 0; i < 4; i++) {
@@ -165,36 +191,36 @@ void move_right_ugol_g(Area* area, Figure* figure) {
 }
 
 int can_move_right_ugol_g(Area* area, Figure* figure) {
-  Color a, b;
+  Color a, b, c;
   int result = 1;
   switch (figure->rotation) {
-    case UP: 
-      a = area->field[figure->coordinates[0][0]+1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]];
+    case UP:
+      a = area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]];
+      b = area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]];
       if (a == FREE && b == FREE) {
         result = 0;
       }
       break;
     case RIGHT:
-      a = area->field[figure->coordinates[0][0]+1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[2][0]+1][figure->coordinates[2][1]];
-      Color c = area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]];
-      if (a ==FREE && b == FREE && c == FREE) {
+      a = area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]];
+      b = area->field[figure->coordinates[2][0] + 1][figure->coordinates[2][1]];
+      c = area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]];
+      if (a == FREE && b == FREE && c == FREE) {
         result = 0;
       }
       break;
     case DOWN:
-      a = area->field[figure->coordinates[0][0]+1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[1][0]+1][figure->coordinates[1][1]];
+      a = area->field[figure->coordinates[0][0] + 1][figure->coordinates[0][1]];
+      b = area->field[figure->coordinates[1][0] + 1][figure->coordinates[1][1]];
       if (a == FREE && b == FREE) {
         result = 0;
-      }   
+      }
       break;
     case LEFT:
-      a = area->field[figure->coordinates[1][0]+1][figure->coordinates[1][1]];
-      b = area->field[figure->coordinates[2][0]+1][figure->coordinates[2][1]];
-      Color c = area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]];
-      if (a ==FREE && b == FREE && c == FREE) {
+      a = area->field[figure->coordinates[1][0] + 1][figure->coordinates[1][1]];
+      b = area->field[figure->coordinates[2][0] + 1][figure->coordinates[2][1]];
+      c = area->field[figure->coordinates[3][0] + 1][figure->coordinates[3][1]];
+      if (a == FREE && b == FREE && c == FREE) {
         result = 0;
       }
       break;
@@ -218,36 +244,36 @@ void move_down_ugol_g(Area* area, Figure* figure) {
 }
 
 int can_move_down_ugol_g(Area* area, Figure* figure) {
-  Color a, b;
+  Color a, b, c;
   int result = 1;
   switch (figure->rotation) {
-    case UP: 
-      a = area->field[figure->coordinates[1][0]][figure->coordinates[1][1]+1];
-      b = area->field[figure->coordinates[2][0]][figure->coordinates[2][1]+1];
-      Color c = area->field[figure->coordinates[3][0]+1][figure->coordinates[3][1]+1];
-      if (a ==FREE && b == FREE && c == FREE) {
+    case UP:
+      a = area->field[figure->coordinates[1][0]][figure->coordinates[1][1] + 1];
+      b = area->field[figure->coordinates[2][0]][figure->coordinates[2][1] + 1];
+      c = area->field[figure->coordinates[3][0]][figure->coordinates[3][1] + 1];
+      if (a == FREE && b == FREE && c == FREE) {
         result = 0;
       }
       break;
     case RIGHT:
-      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1]+1];
-      b = area->field[figure->coordinates[3][0]][figure->coordinates[3][1]+1];
-      if (a ==FREE && b == FREE) {
+      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1] + 1];
+      b = area->field[figure->coordinates[3][0]][figure->coordinates[3][1] + 1];
+      if (a == FREE && b == FREE) {
         result = 0;
       }
       break;
     case DOWN:
-      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1]+1];
-      b = area->field[figure->coordinates[2][0]][figure->coordinates[2][1]+1];
-      Color c = area->field[figure->coordinates[3][0]][figure->coordinates[3][1]+1];
-      if (a ==FREE && b == FREE && c == FREE) {
+      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1] + 1];
+      b = area->field[figure->coordinates[2][0]][figure->coordinates[2][1] + 1];
+      c = area->field[figure->coordinates[3][0]][figure->coordinates[3][1] + 1];
+      if (a == FREE && b == FREE && c == FREE) {
         result = 0;
-      }   
+      }
       break;
     case LEFT:
-      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1]+1];
-      b = area->field[figure->coordinates[1][0]][figure->coordinates[1][1]+1];
-      if (a ==FREE && b == FREE) {
+      a = area->field[figure->coordinates[0][0]][figure->coordinates[0][1] + 1];
+      b = area->field[figure->coordinates[1][0]][figure->coordinates[1][1] + 1];
+      if (a == FREE && b == FREE) {
         result = 0;
       }
       break;
@@ -260,4 +286,3 @@ int can_move_down_ugol_g(Area* area, Figure* figure) {
 //                    2 1                     4
 //      1             3         4 3 2         3
 //      2 3 4         4             1       1 2
-

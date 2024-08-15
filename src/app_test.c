@@ -13,7 +13,7 @@ int main() {
     
 
     Figure figure;
-    figure.type = PALKA;
+    figure.type = UGOL_G;
     figure.color = VIOLET;
     figure.rotation = UP;
     start_coordinates(&figure);
@@ -22,7 +22,7 @@ int main() {
     area.x = 12;
     area.y = 22;
     start_area(&area);
-    start_palka(&figure);
+    start_coordinates(&figure);
     change_area(&area, &figure);
     draw_area(&area);
 
@@ -37,11 +37,11 @@ int main() {
         }
 
         if (code == MOVE_DOWN) {
-            move_down_palka(&area, &figure);
+            move_down(&area, &figure);
         } else if (code == MOVE_LEFT) {
-            move_left_palka(&area, &figure);
+            move_left(&area, &figure);
         } else if (code == MOVE_RIGHT) {
-            move_right_palka(&area, &figure);
+            move_right(&area, &figure);
         } 
 
         //change_area(&area, &figure_location);
