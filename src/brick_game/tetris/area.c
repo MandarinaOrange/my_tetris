@@ -64,46 +64,18 @@ void start_coordinates(Figure* figure) {
     case UGOL_L:
       start_ugol_l(figure);
       break;
-      /*ase KVADRAT:
-        figure_location->coordinates[0][0] = 3;
-        figure_location->coordinates[0][1] = -1;
-        figure_location->coordinates[1][0] = 4;
-        figure_location->coordinates[1][1] = -1;
-        figure_location->coordinates[2][0] = 3;
-        figure_location->coordinates[2][1] = 0;
-        figure_location->coordinates[3][0] = 4;
-        figure_location->coordinates[3][1] = 0;
+      case KVADRAT:
+        start_kvadrat(figure);
         break;
       case VVERH:
-        figure_location->coordinates[0][0] = 3;
-        figure_location->coordinates[0][1] = 0;
-        figure_location->coordinates[1][0] = 4;
-        figure_location->coordinates[1][1] = 0;
-        figure_location->coordinates[2][0] = 4;
-        figure_location->coordinates[2][1] = -1;
-        figure_location->coordinates[3][0] = 5;
-        figure_location->coordinates[3][1] = -1;
+
         break;
       case FUCK:
-        figure_location->coordinates[0][0] = 3;
-        figure_location->coordinates[0][1] = 0;
-        figure_location->coordinates[1][0] = 4;
-        figure_location->coordinates[1][1] = 0;
-        figure_location->coordinates[2][0] = 5;
-        figure_location->coordinates[2][1] = 0;
-        figure_location->coordinates[3][0] = 4;
-        figure_location->coordinates[3][1] = -1;
+
         break;
       case VNIZ:
-        figure_location->coordinates[0][0] = 3;
-        figure_location->coordinates[0][1] = -1;
-        figure_location->coordinates[1][0] = 4;
-        figure_location->coordinates[1][1] = -1;
-        figure_location->coordinates[2][0] = 4;
-        figure_location->coordinates[2][1] = 0;
-        figure_location->coordinates[3][0] = 5;
-        figure_location->coordinates[3][1] = 0;
-        break;*/
+
+        break;
 
     default:
       break;
@@ -119,18 +91,18 @@ void move_down(Area* area, Figure* figure) {
       move_down_ugol_g(area, figure);
       break;
     case UGOL_L:
-    move_down_ugol_l(area, figure);
+      move_down_ugol_l(area, figure);
       break;
-      /*case KVADRAT:
+    case KVADRAT:
+      move_down_kvadrat(area, figure);
+      break;
+    case VVERH:
 
-        break;
-      case VVERH:
+      break;
+    case FUCK:
 
-        break;
-      case FUCK:
-
-        break;
-      case VNIZ:*/
+      break;
+    case VNIZ:
 
     default:
       break;
@@ -146,18 +118,18 @@ void move_left(Area* area, Figure* figure) {
       move_left_ugol_g(area, figure);
       break;
     case UGOL_L:
-    move_left_ugol_l(area, figure);
+      move_left_ugol_l(area, figure);
       break;
-      /*case KVADRAT:
+    case KVADRAT:
+      move_left_kvadrat(area, figure);
+      break;
+    case VVERH:
 
-        break;
-      case VVERH:
+      break;
+    case FUCK:
 
-        break;
-      case FUCK:
-
-        break;
-      case VNIZ:*/
+      break;
+    case VNIZ:
 
     default:
       break;
@@ -173,18 +145,18 @@ void move_right(Area* area, Figure* figure) {
       move_right_ugol_g(area, figure);
       break;
     case UGOL_L:
-    move_right_ugol_l(area, figure);
+      move_right_ugol_l(area, figure);
       break;
-      /*case KVADRAT:
+    case KVADRAT:
+      move_right_kvadrat(area, figure);
+      break;
+    case VVERH:
 
-        break;
-      case VVERH:
+      break;
+    case FUCK:
 
-        break;
-      case FUCK:
-
-        break;
-      case VNIZ:*/
+      break;
+    case VNIZ:
 
     default:
       break;

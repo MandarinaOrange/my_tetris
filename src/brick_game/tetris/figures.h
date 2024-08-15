@@ -107,4 +107,18 @@ int can_move_down_ugol_l(Area* area, Figure* figure);
 
 
 
+//--------------KVADRAT------------------------
+void start_kvadrat(Figure* figure);
+void clean_old_kvadrat_down(Area* area, Figure* figure);
+void clean_old_kvadrat_left(Area* area, Figure* figure);
+void clean_old_kvadrat_right(Area* area, Figure* figure);
+void move_left_kvadrat(Area* area, Figure* figure);
+int can_move_left_kvadrat(Area* area, Figure* figure);
+void move_right_kvadrat(Area* area, Figure* figure);
+int can_move_right_kvadrat(Area* area, Figure* figure);
+void move_down_kvadrat(Area* area, Figure* figure);
+int can_move_down_kvadrat(Area* area, Figure* figure);
+
+
+
 #endif

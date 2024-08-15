@@ -129,7 +129,6 @@ void clean_old_ugol_l_right(Area* area, Figure* figure) {
 //     1 2 3           2       3 2 1       2
 //                     3 4     4           1
 
-
 void move_left_ugol_l(Area* area, Figure* figure) {
   int code = can_move_left_ugol_l(area, figure);
 
@@ -194,7 +193,6 @@ void move_right_ugol_l(Area* area, Figure* figure) {
     clean_old_ugol_l_right(area, figure);
   }
 }
-
 
 int can_move_right_ugol_l(Area* area, Figure* figure) {
   Color a, b, c;
