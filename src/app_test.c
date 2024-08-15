@@ -13,7 +13,7 @@ int main() {
     
 
     Figure figure;
-    figure.type = UGOL_G;
+    figure.type = UGOL_L;
     figure.color = VIOLET;
     figure.rotation = UP;
     start_coordinates(&figure);

@@ -92,6 +92,18 @@ void move_down_ugol_g(Area* area, Figure* figure);
 int can_move_down_ugol_g(Area* area, Figure* figure);
 
 
+//--------------UGOL_L---------------------
+void start_ugol_l(Figure* figure);
+void clean_old_ugol_l_down(Area* area, Figure* figure);
+void clean_old_ugol_l_left(Area* area, Figure* figure);
+void clean_old_ugol_l_right(Area* area, Figure* figure);
+void move_left_ugol_l(Area* area, Figure* figure);
+int can_move_left_ugol_l(Area* area, Figure* figure);
+void move_right_ugol_l(Area* area, Figure* figure);
+int can_move_right_ugol_l(Area* area, Figure* figure);
+void move_down_ugol_l(Area* area, Figure* figure);
+int can_move_down_ugol_l(Area* area, Figure* figure);
+
 
 
 

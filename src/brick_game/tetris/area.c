@@ -62,14 +62,7 @@ void start_coordinates(Figure* figure) {
       start_ugol_g(figure);
       break;
     case UGOL_L:
-      figure->coordinates[0][0] = 3;
-      figure->coordinates[0][1] = 0;
-      figure->coordinates[1][0] = 4;
-      figure->coordinates[1][1] = 0;
-      figure->coordinates[2][0] = 5;
-      figure->coordinates[2][1] = 0;
-      figure->coordinates[3][0] = 5;
-      figure->coordinates[3][1] = -1;
+      start_ugol_l(figure);
       break;
       /*ase KVADRAT:
         figure_location->coordinates[0][0] = 3;
@@ -126,6 +119,7 @@ void move_down(Area* area, Figure* figure) {
       move_down_ugol_g(area, figure);
       break;
     case UGOL_L:
+    move_down_ugol_l(area, figure);
       break;
       /*case KVADRAT:
 
@@ -152,6 +146,7 @@ void move_left(Area* area, Figure* figure) {
       move_left_ugol_g(area, figure);
       break;
     case UGOL_L:
+    move_left_ugol_l(area, figure);
       break;
       /*case KVADRAT:
 
@@ -178,6 +173,7 @@ void move_right(Area* area, Figure* figure) {
       move_right_ugol_g(area, figure);
       break;
     case UGOL_L:
+    move_right_ugol_l(area, figure);
       break;
       /*case KVADRAT:
 
