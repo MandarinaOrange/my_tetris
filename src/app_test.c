@@ -32,7 +32,7 @@ int main() {
         if (code == CHANGE_FIGURE) {
             scanf("%d", &help);
             figure.type = help;
-            start_palka(&figure);
+            start_coordinates(&figure);
             change_area(&area, &figure);
         }
 
@@ -48,7 +48,7 @@ int main() {
         draw_area(&area);
 
         scanf("%d", &code);
-        //code = help;
+        scanf("%c", &help);
     }
     
 

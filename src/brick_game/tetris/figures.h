@@ -59,9 +59,9 @@ typedef struct {
 int can_move(Figure* figure_location, Area* area);
 int can_move_left_right(int direction, Figure* figure_location, Area* area);
 
-int move_down(Figure* figure_location, Area* area);
-int move_left(Figure* figure_location, Area* area);
-int move_right(Figure* figure_location, Area* area);
+void move_down(Area* area, Figure* figure);
+void move_left(Area* area, Figure* figure);
+void move_right(Area* area, Figure* figure);
 
 void start_coordinates(Figure* figure_location);
 void start_area(Area* area);
@@ -81,6 +81,15 @@ int can_move_right_palka(Area* area, Figure* figure);
 
 
 //-------------UGOL_G-------------------
+void start_ugol_g(Figure* figure);
+void clean_old_ugol_g_left(Area* area, Figure* figure);
+void clean_old_ugol_g_right(Area* area, Figure* figure);
+void move_left_ugol_g(Area* area, Figure* figure);
+int can_move_left_ugol_g(Area* area, Figure* figure);
+void move_right_ugol_g(Area* area, Figure* figure);
+int can_move_right_ugol_g(Area* area, Figure* figure);
+void move_down_ugol_g(Area* area, Figure* figure);
+int can_move_down_ugol_g(Area* area, Figure* figure);
 
 
 

@@ -39,14 +39,7 @@ void start_coordinates(Figure* figure) {
       start_palka(figure);
       break;
     case UGOL_G:
-      figure->coordinates[0][0] = 3;
-      figure->coordinates[0][1] = -1;
-      figure->coordinates[1][0] = 3;
-      figure->coordinates[1][1] = 0;
-      figure->coordinates[2][0] = 4;
-      figure->coordinates[2][1] = 0;
-      figure->coordinates[3][0] = 5;
-      figure->coordinates[3][1] = 0;
+      start_ugol_g(figure);
       break;
     case UGOL_L:
       figure->coordinates[0][0] = 3;
@@ -105,36 +98,82 @@ void start_coordinates(Figure* figure) {
 }
 
 int move_down(Figure* figure, Area* area) {
-  int result = can_move(figure, area);
+  switch (figure->type) {
+    case PALKA:
+      move_down_palka(area, figure);
+      break;
+    case UGOL_G:
+      move_down_ugol_g(area, figure);
+      break;
+    case UGOL_L:
+      break;
+      /*case KVADRAT:
 
-  if (!result) {
-    for (int i = 0; i < 4; i++) {
-      figure->coordinates[i][1]++;
-    }
+        break;
+      case VVERH:
+
+        break;
+      case FUCK:
+
+        break;
+      case VNIZ:*/
+
+
+    default:
+      break;
   }
-  change_area(area, figure);
-  clean_old_down(area, figure);
-  return result;
 }
 
-int move_left(Figure* figure, Area* area) {
-  int result = can_move_left_right(-1, figure, area);
-  if (!result) {
-    for (int i = 0; i < 4; i++) {
-      figure->coordinates[i][0]--;
-    }
-  }
+void move_left(Figure* figure, Area* area) {
+  switch (figure->type) {
+    case PALKA:
+      move_left_palka(area, figure);
+      break;
+    case UGOL_G:
+      move_left_ugol_g(area, figure);
+      break;
+    case UGOL_L:
+      break;
+      /*case KVADRAT:
 
-  return result;
+        break;
+      case VVERH:
+
+        break;
+      case FUCK:
+
+        break;
+      case VNIZ:*/
+
+
+    default:
+      break;
+  }
 }
 
-int move_right(Figure* figure, Area* area) {
-  int result = can_move_left_right(1, figure, area);
-  if (!result) {
-    for (int i = 0; i < 4; i++) {
-      figure->coordinates[i][0]++;
-    }
-  }
+void move_right(Figure* figure, Area* area) {
+  switch (figure->type) {
+    case PALKA:
+      move_right_palka(area, figure);
+      break;
+    case UGOL_G:
+      move_right_ugol_g(area, figure);
+      break;
+    case UGOL_L:
+      break;
+      /*case KVADRAT:
 
-  return result;
+        break;
+      case VVERH:
+
+        break;
+      case FUCK:
+
+        break;
+      case VNIZ:*/
+
+
+    default:
+      break;
+  }
 }
