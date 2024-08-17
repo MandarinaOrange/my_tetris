@@ -37,18 +37,20 @@ int main() {
 
     WINDOW* tetris = newwin(24, 60, 4, 4);
 
-    //WINDOW* play_area = derwin(tetris, 22, 13, 1, 1);
+    WINDOW* play_area = derwin(tetris, 22, 13, 1, 1);
 
-    WINDOW* menu = derwin(tetris, 10, 10, 25, 30);
-
-    //WINDOW* score = derwin(tetris, 10, 10, 35, 30);
+    WINDOW* menu = derwin(tetris, 4, 25, 2, 28);
+    WINDOW* next_figure = derwin(tetris, 5, 20, 7, 30);
+    WINDOW* score = derwin(tetris, 4, 25, 15, 28);
     box(menu, 0, 0);
-    //box(score, 0, 0);
+    box(next_figure, 0, 0);
+    box(score, 0, 0);
 
     box(tetris, 0, 0);
-    //mvwprintw(tetris, 0, 1, "Greeter");
-    mvwprintw(menu, 1, 1, "Hello");
-    //ncdraw_area(&area, play_area);
+    mvwprintw(menu, 1, 1, "MENU");
+    mvwprintw(next_figure, 1, 1, "NEXT");
+    mvwprintw(score, 1, 1, "SCORE");
+    ncdraw_area(&area, play_area);
     wrefresh(tetris);
 
 
