@@ -13,7 +13,7 @@ int main() {
     
 
     Figure figure;
-    figure.type = FUCK;
+    figure.type = VNIZ;
     figure.color = VIOLET;
     figure.rotation = UP;
     start_coordinates(&figure);

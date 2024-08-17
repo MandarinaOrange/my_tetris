@@ -289,4 +289,5 @@ int can_move_down_ugol_l(Area* area, Figure* figure) {
     default:
       break;
   }
+  return result;
 }

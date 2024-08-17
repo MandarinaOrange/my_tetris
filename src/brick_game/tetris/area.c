@@ -8,6 +8,12 @@ void change_area(Area* area, Figure* figure) {
   b = figure->coordinates[1][1];
   c = figure->coordinates[2][1];
   d = figure->coordinates[3][1];
+  if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+    for (int i = 0; i < 4; i++) {
+      area->field[figure->coordinates[i][0]][0] = FREE;
+    }
+  }
+
   if (a >= 0)
     area->field[figure->coordinates[0][0]][figure->coordinates[0][1]] =
         figure->color;
@@ -68,13 +74,13 @@ void start_coordinates(Figure* figure) {
       start_kvadrat(figure);
       break;
     case VVERH:
-
+      start_vverh(figure);
       break;
     case FUCK:
       start_fuck(figure);
       break;
     case VNIZ:
-
+      start_vniz(figure);
       break;
 
     default:
@@ -97,13 +103,14 @@ void move_down(Area* area, Figure* figure) {
       move_down_kvadrat(area, figure);
       break;
     case VVERH:
-
+      move_down_vverh(area, figure);
       break;
     case FUCK:
       move_down_fuck(area, figure);
       break;
     case VNIZ:
-
+      move_down_vniz(area, figure);
+      break;
     default:
       break;
   }
@@ -124,13 +131,14 @@ void move_left(Area* area, Figure* figure) {
       move_left_kvadrat(area, figure);
       break;
     case VVERH:
-
+      move_left_vverh(area, figure);
       break;
     case FUCK:
       move_left_fuck(area, figure);
       break;
     case VNIZ:
-
+      move_left_vniz(area, figure);
+      break;
     default:
       break;
   }
@@ -151,12 +159,14 @@ void move_right(Area* area, Figure* figure) {
       move_right_kvadrat(area, figure);
       break;
     case VVERH:
+      move_right_vverh(area, figure);
       break;
     case FUCK:
       move_right_fuck(area, figure);
       break;
     case VNIZ:
-
+      move_right_vniz(area, figure);
+      break;
     default:
       break;
   }

@@ -105,4 +105,5 @@ int can_move_down_kvadrat(Area* area, Figure* figure) {
   if (a == FREE && b == FREE) {
     result = 0;
   }
+  return result;
 }

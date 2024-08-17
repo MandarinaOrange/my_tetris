@@ -1,6 +1,5 @@
 #include "figures.h"
 
-
 void start_fuck(Figure* figure) {
   figure->coordinates[0][0] = 4;
   figure->coordinates[0][1] = 0;
@@ -53,7 +52,6 @@ void clean_old_fuck_down(Area* area, Figure* figure) {
 //       3          0                             2
 //     0 1 2        1 3          2 1 0          3 1
 //                  2              3              0
-
 
 void clean_old_fuck_left(Area* area, Figure* figure) {
   switch (figure->rotation) {
@@ -287,6 +285,7 @@ int can_move_down_fuck(Area* area, Figure* figure) {
     default:
       break;
   }
+  return result;
 }
 
 //       3          0                             2

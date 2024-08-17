@@ -142,4 +142,35 @@ int can_move_down_fuck(Area* area, Figure* figure);
 
 
 
+//---------------------VVERH---------------------------
+void start_vverh(Figure* figure);
+void clean_old_vverh_down(Area* area, Figure* figure);
+void clean_old_vverh_left(Area* area, Figure* figure);
+void clean_old_vverh_right(Area* area, Figure* figure);
+void move_left_vverh(Area* area, Figure* figure);
+int can_move_left_vverh(Area* area, Figure* figure);
+void move_right_vverh(Area* area, Figure* figure);
+int can_move_right_vverh(Area* area, Figure* figure);
+void move_down_vverh(Area* area, Figure* figure);
+int can_move_down_vverh(Area* area, Figure* figure);
+
+
+
+
+
+//----------------------VNIZ------------------------------
+void start_vniz(Figure* figure);
+void clean_old_vniz_down(Area* area, Figure* figure);
+void clean_old_vniz_left(Area* area, Figure* figure);
+void clean_old_vniz_right(Area* area, Figure* figure);
+void move_left_vniz(Area* area, Figure* figure);
+int can_move_left_vniz(Area* area, Figure* figure);
+void move_right_vniz(Area* area, Figure* figure);
+int can_move_right_vniz(Area* area, Figure* figure);
+void move_down_vniz(Area* area, Figure* figure);
+int can_move_down_vniz(Area* area, Figure* figure);
+
+
+
+
 #endif
