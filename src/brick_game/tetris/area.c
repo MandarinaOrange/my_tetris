@@ -71,7 +71,7 @@ void start_coordinates(Figure* figure) {
 
       break;
     case FUCK:
-
+      start_fuck(figure);
       break;
     case VNIZ:
 
@@ -100,7 +100,7 @@ void move_down(Area* area, Figure* figure) {
 
       break;
     case FUCK:
-
+      move_down_fuck(area, figure);
       break;
     case VNIZ:
 
@@ -127,7 +127,7 @@ void move_left(Area* area, Figure* figure) {
 
       break;
     case FUCK:
-
+      move_left_fuck(area, figure);
       break;
     case VNIZ:
 
@@ -151,10 +151,9 @@ void move_right(Area* area, Figure* figure) {
       move_right_kvadrat(area, figure);
       break;
     case VVERH:
-
       break;
     case FUCK:
-
+      move_right_fuck(area, figure);
       break;
     case VNIZ:
 
