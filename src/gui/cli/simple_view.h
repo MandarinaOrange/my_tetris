@@ -21,4 +21,10 @@ typedef enum {
 
 void draw_area(Area* area);
 
+
+
+
+
+void ncdraw_area(Area* area, WINDOW* window);
+
 #endif

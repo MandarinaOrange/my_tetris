@@ -1,3 +1,4 @@
+#include <ncurses.h>
 #include <stdio.h>
 
 #include "brick_game/tetris/figures.h"
@@ -49,13 +50,11 @@ int main() {
       scanf("%d", &code);
       scanf("%c", &help);
     }
-    
 
     game_area_scan(&area);
     draw_area(&area);
     scanf("%d", &code);
     scanf("%c", &help);
-
   }
 
   return 0;
