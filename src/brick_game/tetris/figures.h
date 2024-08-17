@@ -173,4 +173,13 @@ int can_move_down_vniz(Area* area, Figure* figure);
 
 
 
+
+//----------------GAME_PLAY-----------------------
+int game_start();
+int game_move_down(Area* area, Figure* figure);
+int game_area_scan(Area* area);
+void game_area_fall(Area* area, int row);
+
+
+
 #endif
