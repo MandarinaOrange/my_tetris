@@ -1,6 +1,8 @@
 #ifndef FIGURES_H
 #define FIGURES_H
 
+#include <ncurses.h>
+
 typedef enum {
   PALKA = 0,    // ''''
   UGOL_G = 1,   // :..
@@ -14,14 +16,14 @@ typedef enum {
 
 typedef enum {
   FREE = 0,
-  RED = 1,
-  ORANGE = 2,
-  YELLOW = 3,
-  PINK = 4,
-  GREEN = 5,
-  BLUE = 6,
-  VIOLET = 7,
-  BORTIK = 8
+  RED = '1',
+  ORANGE = '2',
+  YELLOW = '3',
+  PINK = '4',
+  GREEN = '5',
+  BLUE = '6',
+  VIOLET = '7',
+  BORTIK = '8'
 } Color;
 
 typedef enum {
@@ -67,7 +69,6 @@ void start_coordinates(Figure* figure_location);
 void start_area(Area* area);
 
 void change_area(Area* area, Figure* figure_location);
-void clean_old_down(Area* area, Figure* figure);
 
 
 //--------------ROTATION--------------------
@@ -179,7 +180,9 @@ int game_start();
 int game_move_down(Area* area, Figure* figure);
 int game_area_scan(Area* area);
 void game_area_fall(Area* area, int row);
-
+int full_game(Area* area, int* record, int speed);
+int game_continue(Area* area, Figure* figure, int speed, int* result, int code);
+int game_change_figure(Figure* figure, Figure* next_fig, WINDOW* wind);
 
 
 #endif

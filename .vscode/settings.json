@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "figures.h": "c"
+        "figures.h": "c",
+        "simple_view.h": "c"
     }
 }

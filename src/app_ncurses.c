@@ -1,12 +1,14 @@
 #include <ncurses.h>
 #include <stdio.h>
+#include <time.h>
 
 #include "brick_game/tetris/figures.h"
 #include "gui/cli/simple_view.h"
+#define DELAY 3000
+#define TIMEOUT 100
 
 int main() {
-
-  Figure figure;
+  /*Figure figure;
   figure.type = VNIZ;
   figure.color = VIOLET;
   figure.rotation = UP;
@@ -53,21 +55,25 @@ int main() {
     ncdraw_area(&area, play_area);
     wrefresh(tetris);
 
+    ncplay(&area, play_area);*/
+  initscr();
+  keypad(stdscr, TRUE);
+  noecho();
+  nodelay(stdscr, TRUE);
+  curs_set(0);
+  timeout(TIMEOUT);
+  // resizeterm(90,90);
+  getch();
 
+  Area area;
+  int record = 0;
+  int speed = 2;
 
+  full_game(&area, &record, speed);
 
+  // ncdraw_area(&area);
 
-
-
-
-
-
-
-
-
-  //ncdraw_area(&area);
-
-  refresh();
+  // refresh();
   getch();
 
   endwin();  // завершение работы с ncurses

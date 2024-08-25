@@ -1,3 +1,5 @@
+#include <ncurses.h>
+
 #include "figures.h"
 
 //после того как изменили координаты нахождения фигурки, нужно поменять цвет
@@ -40,6 +42,8 @@ void change_area(Area* area, Figure* figure) {
 }
 
 void start_area(Area* area) {
+  area->x = 12;
+  area->y = 22;
   for (int i = 0; i < area->x; i++) {
     area->field[i][0] = BORTIK;
     area->field[i][area->y - 1] = BORTIK;
@@ -60,6 +64,7 @@ void start_area(Area* area) {
 //   1234      234      123      34     12     123        34
 //----------------------------------------------------------------
 void start_coordinates(Figure* figure) {
+  figure->type = UP;
   switch (figure->type) {
     case PALKA:
       start_palka(figure);

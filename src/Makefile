@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -std=c11 -pedantic
-NCURSFLAGS = -lform -lncurses
+NCURSFLAGS = -lform -lncurses -lpanel
 
 
-all: app_test 
+all:  
 
 app_test: 
 		$(CC) -c brick_game/tetris/*.c  gui/cli/*.c  app_test.c
@@ -19,7 +19,7 @@ app_ncurses:
 		rm *.o
 
 clean: 
-	rm -rf *.o ./app_test
+	rm -rf *.o ./app_test 
 
 clang:
 	clang-format -i */*/*.c  *.c

@@ -26,5 +26,9 @@ void draw_area(Area* area);
 
 
 void ncdraw_area(Area* area, WINDOW* window);
+void ncdraw_windows(WINDOW** tetris, WINDOW** play_area, WINDOW** menu, WINDOW** next_figure, WINDOW** score, Area* area);
+int ncpause(int* code, WINDOW* tetris);
+
+
 
 #endif

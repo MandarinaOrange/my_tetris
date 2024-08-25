@@ -1,5 +1,9 @@
+#include <ncurses.h>
 #include <stdio.h>
+#include <time.h>
+#include <unistd.h>
 
+#include "../../gui/cli/simple_view.h"
 #include "figures.h"
 
 int game_start() {
@@ -89,4 +93,82 @@ void game_area_fall(Area* area, int row) {
       area->field[j][i + 1] = area->field[j][i];
     }
   }
+}
+
+int full_game(Area* area, int* record, int speed) {
+  int result = 0;
+
+  WINDOW *tetris;
+  WINDOW *play_area;
+  WINDOW *menu;
+  WINDOW *score;
+  WINDOW *next_figure;
+  start_area(area);
+  ncdraw_windows(&tetris, &play_area, &menu, &next_figure, &score, area);
+
+
+  srand(time(0));
+  Figure figure, next_fig;
+  game_change_figure(&figure, &next_fig, next_figure);
+  change_area(area, &figure);
+  ncdraw_area(area, play_area);
+
+  int code = 'y';
+  int change_fig = 0;
+  while (code != 'q') {
+    code = getch();
+  }
+  code = 'y';
+  while (code != 'q') {
+    if (code == 'p') {
+      // ncpause(&code, tetris);
+    } else {
+      game_continue(area, &figure, speed, &result, code);
+      ncdraw_area(area, play_area);
+    }
+    code = getch();
+    move_down(area, &figure);
+    change_fig = game_move_down(area, &figure);
+    change_area(area, &figure);
+    ncdraw_area(area, play_area);
+
+    if (change_fig == 1) {
+      game_change_figure(&figure, &next_fig, next_figure);
+    }
+  }
+
+  if (result > *record) {
+    *record = result;
+  }
+  return result;
+}
+
+int game_continue(Area* area, Figure* figure, int speed, int* result, int code) {
+  switch (getch()) {
+    case 'r':
+    case KEY_RIGHT:
+      move_right(area, figure);
+      break;
+    case 'l':
+    case KEY_LEFT:
+      move_left(area, figure);
+      break;
+    case 'd':
+    case KEY_DOWN:
+      move_down(area, figure);
+      break;
+    default:
+      break;
+  }
+  // move_down(area, figure);
+  change_area(area, figure);
+  return game_move_down(area, figure);
+}
+
+int game_change_figure(Figure* figure, Figure* next_fig, WINDOW *wind) {
+  figure->type = VVERH;
+  start_coordinates(figure);
+  next_fig->type = rand() % 8;
+  mvwprintw(wind, 1, 1, "NEXT IS %d", next_fig->type);
+  wrefresh(wind);
 }
