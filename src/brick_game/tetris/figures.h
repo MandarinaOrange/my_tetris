@@ -22,7 +22,7 @@ typedef enum {
   PINK = '4',
   GREEN = '5',
   BLUE = '6',
-  VIOLET = '7',
+  VIOLET = 'R',
   BORTIK = '8'
 } Color;
 
@@ -74,8 +74,10 @@ void change_area(Area* area, Figure* figure_location);
 //--------------ROTATION--------------------
 void change_rotate_right(Figure* figure);
 void change_rotate_left(Figure* figure);
+void rotate_right(Area* area, Figure* figure);
 void test_rotate_right(Figure* figure, Figure* test_figure);
-void test_rotate_left(Figure* figure, Figure* test_figure);
+//void test_rotate_left(Figure* figure, Figure* test_figure);
+void clean_rotate(Area* area, Figure* figure);
 
 
 //--------------PALKA----------------
@@ -86,6 +88,8 @@ void move_left_palka(Area* area, Figure* figure);
 int can_move_left_palka(Area* area, Figure* figure);
 void move_right_palka(Area* area, Figure* figure);
 int can_move_right_palka(Area* area, Figure* figure);
+void rotate_right_palka(Area* area, Figure* figure);
+void test_rotate_right_palka(Figure* figure);
 
 
 //-------------UGOL_G-------------------
@@ -182,7 +186,7 @@ int game_area_scan(Area* area);
 void game_area_fall(Area* area, int row);
 int full_game(Area* area, int* record, int speed);
 int game_continue(Area* area, Figure* figure, int speed, int* result, int code);
-int game_change_figure(Figure* figure, Figure* next_fig, WINDOW* wind);
+int game_change_figure(Figure* figure, Figure* next_fig, WINDOW* wind, Area* area);
 
 
 #endif

@@ -109,7 +109,7 @@ int full_game(Area* area, int* record, int speed) {
 
   srand(time(0));
   Figure figure, next_fig;
-  game_change_figure(&figure, &next_fig, next_figure);
+  game_change_figure(&figure, &next_fig, next_figure, area);
   change_area(area, &figure);
   ncdraw_area(area, play_area);
 
@@ -127,13 +127,13 @@ int full_game(Area* area, int* record, int speed) {
       ncdraw_area(area, play_area);
     }
     code = getch();
-    move_down(area, &figure);
+    //move_down(area, &figure);
     change_fig = game_move_down(area, &figure);
     change_area(area, &figure);
     ncdraw_area(area, play_area);
 
     if (change_fig == 1) {
-      game_change_figure(&figure, &next_fig, next_figure);
+      game_change_figure(&figure, &next_fig, next_figure, area);
     }
   }
 
@@ -142,6 +142,8 @@ int full_game(Area* area, int* record, int speed) {
   }
   return result;
 }
+
+
 
 int game_continue(Area* area, Figure* figure, int speed, int* result, int code) {
   switch (getch()) {
@@ -157,6 +159,9 @@ int game_continue(Area* area, Figure* figure, int speed, int* result, int code) 
     case KEY_DOWN:
       move_down(area, figure);
       break;
+    case KEY_UP:
+      rotate_right(area, figure);
+
     default:
       break;
   }
@@ -165,8 +170,11 @@ int game_continue(Area* area, Figure* figure, int speed, int* result, int code) 
   return game_move_down(area, figure);
 }
 
-int game_change_figure(Figure* figure, Figure* next_fig, WINDOW *wind) {
-  figure->type = VVERH;
+int game_change_figure(Figure* figure, Figure* next_fig, WINDOW *wind, Area* area) {
+
+  game_area_scan(area);
+
+  figure->type = PALKA;//next_fig->type;
   start_coordinates(figure);
   next_fig->type = rand() % 8;
   mvwprintw(wind, 1, 1, "NEXT IS %d", next_fig->type);

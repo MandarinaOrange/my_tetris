@@ -64,7 +64,8 @@ void start_area(Area* area) {
 //   1234      234      123      34     12     123        34
 //----------------------------------------------------------------
 void start_coordinates(Figure* figure) {
-  figure->type = UP;
+  figure->rotation = UP;
+  figure->color = VIOLET;
   switch (figure->type) {
     case PALKA:
       start_palka(figure);
@@ -219,31 +220,37 @@ void change_rotate_left(Figure* figure) {
 
 // делаем тестовую фигуру, чтобы посмотреть, не впишется ли она во что-то (в
 // текстуру)
-void test_rotate_right(Figure* figure, Figure* test_figure) {
-  /*switch (figure->type) {
+void rotate_right(Area* area, Figure* figure) {
+  switch (figure->type) {
   case PALKA:
-    move_right_palka(area, figure);
+    rotate_right_palka(area, figure);
     break;
-  case UGOL_G:
-    move_right_ugol_g(area, figure);
+  /*case UGOL_G:
+    test_rotate_right_ugol_g(area, figure);
     break;
   case UGOL_L:
-    move_right_ugol_l(area, figure);
+    test_rotate_right_ugol_l(area, figure);
     break;
   case KVADRAT:
-    move_right_kvadrat(area, figure);
+    test_rotate_right_kvadrat(area, figure);
     break;
   case VVERH:
-
+    test_rotate_right_vverh(area, figure);
     break;
   case FUCK:
-
+    test_rotate_right_fuck(area, figure);
     break;
   case VNIZ:
-
+    test_rotate_right_vniz(area, figure);
+    break;*/
   default:
     break;
-}*/
+}
+}
+void clean_rotate(Area* area, Figure* figure) {
+  for (int i = 0; i < 4; i++) { 
+    area->field[figure->coordinates[i][0]][figure->coordinates[i][1]] = FREE;
+  }
 }
 
 void test_rotate_left(Figure* figure, Figure* test_figure) {
