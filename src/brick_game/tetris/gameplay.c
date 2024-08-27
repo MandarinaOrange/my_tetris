@@ -64,8 +64,8 @@ int game_move_down(Area* area, Figure* figure) {
 
 // int field[12][22]
 
-int game_area_scan(Area* area) {
-  int result = 0;
+int game_area_scan(Area* area, WINDOW* score, int result) {
+  
   int flag = 0;
 
   for (int i = 1; i < 21; i++) {
@@ -80,7 +80,7 @@ int game_area_scan(Area* area) {
         area->field[j][i] = FREE;
       }
       game_area_fall(area, i);
-      result = 1;
+      result = game_score_count(score, result);
     }
     flag = 0;
   }
@@ -88,10 +88,13 @@ int game_area_scan(Area* area) {
 }
 
 void game_area_fall(Area* area, int row) {
-  for (int i = row - 1; row > 0; row--) {
+  for (int i = row - 1; i > 0; i--) {
     for (int j = 1; j < 11; j++) {
       area->field[j][i + 1] = area->field[j][i];
     }
+  }
+  for (int j = 0; j < 11; j++) {
+    area->field[j][1] = FREE;
   }
 }
 
@@ -109,7 +112,7 @@ int full_game(Area* area, int* record, int speed) {
 
   srand(time(0));
   Figure figure, next_fig;
-  game_change_figure(&figure, &next_fig, next_figure, area);
+  game_change_figure(&figure, &next_fig, next_figure, area, score, &result);
   change_area(area, &figure);
   ncdraw_area(area, play_area);
 
@@ -133,7 +136,7 @@ int full_game(Area* area, int* record, int speed) {
     ncdraw_area(area, play_area);
 
     if (change_fig == 1) {
-      game_change_figure(&figure, &next_fig, next_figure, area);
+      result = game_change_figure(&figure, &next_fig, next_figure, area, score, result);
     }
   }
 
@@ -170,13 +173,23 @@ int game_continue(Area* area, Figure* figure, int speed, int* result, int code) 
   return game_move_down(area, figure);
 }
 
-int game_change_figure(Figure* figure, Figure* next_fig, WINDOW *wind, Area* area) {
+int game_change_figure(Figure* figure, Figure* next_fig, WINDOW *wind, Area* area, WINDOW* score, int result) {
 
-  game_area_scan(area);
+  result = game_area_scan(area, score, result);
 
-  figure->type = UGOL_G;//next_fig->type;
+  figure->type = next_fig->type;//next_fig->type;
   start_coordinates(figure);
   next_fig->type = rand() % 8;
   mvwprintw(wind, 1, 1, "NEXT IS %d", next_fig->type);
   wrefresh(wind);
+  return result;
+}
+
+
+
+int game_score_count(WINDOW* score, int result) {
+  result = result * 2 + 100;
+  mvwprintw(score, 2, 1, "SCORE: %d", result);
+  wrefresh(score);
+  return result;
 }

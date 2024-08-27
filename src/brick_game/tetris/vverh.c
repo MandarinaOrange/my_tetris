@@ -319,34 +319,30 @@ void test_rotate_right_vverh(Figure* figure) {
     case UP:
       figure->coordinates[0][0]++;
       figure->coordinates[0][1]--; 
-      figure->coordinates[2][0]--;
+      figure->coordinates[2][0]++;
       figure->coordinates[2][1]++;
-      figure->coordinates[3][0]++; 
-      figure->coordinates[3][1]++;
+      figure->coordinates[3][1] += 2;
       break;
     case RIGHT:
       figure->coordinates[0][0]++;
       figure->coordinates[0][1]++; 
       figure->coordinates[2][0]--;
-      figure->coordinates[2][1]--;
-      figure->coordinates[3][0]--; 
-      figure->coordinates[3][1]++;
+      figure->coordinates[2][1]++;
+      figure->coordinates[3][0] -= 2; 
       break;
     case DOWN:
       figure->coordinates[0][0]--;
       figure->coordinates[0][1]++; 
-      figure->coordinates[2][0]++;
+      figure->coordinates[2][0]--;
       figure->coordinates[2][1]--;
-      figure->coordinates[3][0]--; 
-      figure->coordinates[3][1]--;
+      figure->coordinates[3][1] -= 2;
       break; 
     case LEFT:
       figure->coordinates[0][0]--;
       figure->coordinates[0][1]--; 
       figure->coordinates[2][0]++;
-      figure->coordinates[2][1]++;
-      figure->coordinates[3][0]++; 
-      figure->coordinates[3][1]--;
+      figure->coordinates[2][1]--;
+      figure->coordinates[3][0] += 2; 
       break;
     default:
       break;

@@ -52,7 +52,7 @@ void ncdraw_windows(WINDOW **tetris, WINDOW **play_area, WINDOW **menu, WINDOW *
   box(*tetris, 0, 0);
   mvwprintw(*menu, 1, 1, "MENU");
   mvwprintw(*next_figure, 1, 1, "NEXT");
-  mvwprintw(*score, 1, 1, "SCORE");
+  mvwprintw(*score, 2, 1, "SCORE: 0");
   ncdraw_area(area, *play_area);
   wrefresh(*tetris);
   printw("OK\n");

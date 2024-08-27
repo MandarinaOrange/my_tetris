@@ -189,11 +189,12 @@ void test_rotate_right_vniz(Figure* figure);
 //----------------GAME_PLAY-----------------------
 int game_start();
 int game_move_down(Area* area, Figure* figure);
-int game_area_scan(Area* area);
+int game_area_scan(Area* area, WINDOW* score, int result);
 void game_area_fall(Area* area, int row);
 int full_game(Area* area, int* record, int speed);
 int game_continue(Area* area, Figure* figure, int speed, int* result, int code);
-int game_change_figure(Figure* figure, Figure* next_fig, WINDOW* wind, Area* area);
+int game_change_figure(Figure* figure, Figure* next_fig, WINDOW* wind, Area* area, WINDOW* score, int result);
+int game_score_count(WINDOW* score, int result);
 
 
 #endif

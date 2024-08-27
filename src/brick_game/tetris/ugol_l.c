@@ -169,7 +169,7 @@ int can_move_left_ugol_l(Area* area, Figure* figure) {
       break;
     case LEFT:
       a = area->field[figure->coordinates[0][0] - 1][figure->coordinates[0][1]];
-      b = area->field[figure->coordinates[2][0] - 1][figure->coordinates[2][1]];
+      b = area->field[figure->coordinates[1][0] - 1][figure->coordinates[1][1]];
       c = area->field[figure->coordinates[3][0] - 1][figure->coordinates[3][1]];
       if (a == FREE && b == FREE && c == FREE) {
         result = 0;
@@ -322,32 +322,28 @@ void test_rotate_right_ugol_l(Figure* figure) {
       figure->coordinates[0][1]--; 
       figure->coordinates[2][0]--;
       figure->coordinates[2][1]++;
-      figure->coordinates[3][0]++; 
-      figure->coordinates[3][1]++;
+      figure->coordinates[3][1] += 2;
       break;
     case RIGHT:
       figure->coordinates[0][0]++;
       figure->coordinates[0][1]++; 
       figure->coordinates[2][0]--;
       figure->coordinates[2][1]--;
-      figure->coordinates[3][0]--; 
-      figure->coordinates[3][1]++;
+      figure->coordinates[3][0] -= 2; 
       break;
     case DOWN:
       figure->coordinates[0][0]--;
       figure->coordinates[0][1]++; 
       figure->coordinates[2][0]++;
       figure->coordinates[2][1]--;
-      figure->coordinates[3][0]--; 
-      figure->coordinates[3][1]--;
+      figure->coordinates[3][1] -= 2;
       break; 
     case LEFT:
       figure->coordinates[0][0]--;
       figure->coordinates[0][1]--; 
       figure->coordinates[2][0]++;
       figure->coordinates[2][1]++;
-      figure->coordinates[3][0]++; 
-      figure->coordinates[3][1]--;
+      figure->coordinates[3][0] += 2; 
       break;
     default:
       break;
