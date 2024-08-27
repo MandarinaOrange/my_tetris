@@ -193,3 +193,10 @@ int game_score_count(WINDOW* score, int result) {
   wrefresh(score);
   return result;
 }
+
+
+
+
+//пересчитать подсчет очков
+//добавить ввод вывод в файл
+//приделать начало, паузу и выход
