@@ -314,22 +314,32 @@ void rotate_right_ugol_g(Area* area, Figure* figure) {
 void test_rotate_right_ugol_g(Figure* figure) {
   switch(figure->rotation) {
     case UP:
+      figure->coordinates[0][0] += 2;
+      figure->coordinates[1][0]++;
+      figure->coordinates[1][1]--;
+      figure->coordinates[3][0]--; 
+      figure->coordinates[3][1]++;
+      break;
+    case RIGHT:
+      figure->coordinates[0][1] += 2; 
+      figure->coordinates[1][0]++;
+      figure->coordinates[1][1]++;
+      figure->coordinates[3][0]--; 
+      figure->coordinates[3][1]--;
+      break;
     case DOWN:
-      figure->coordinates[0][0]++;
-      figure->coordinates[0][1]--; 
-      figure->coordinates[2][0]--;
-      figure->coordinates[2][1]++;
-      figure->coordinates[3][0] -= 2; 
-      figure->coordinates[3][1] += 2;
+      figure->coordinates[0][0] -= 2;
+      figure->coordinates[1][0]--;
+      figure->coordinates[1][1]++;
+      figure->coordinates[3][0]++; 
+      figure->coordinates[3][1]--;
       break; 
     case LEFT:
-    case RIGHT:
-      figure->coordinates[0][0]--;
-      figure->coordinates[0][1]++; 
-      figure->coordinates[2][0]++;
-      figure->coordinates[2][1]--;
-      figure->coordinates[3][0] += 2; 
-      figure->coordinates[3][1] -= 2;
+      figure->coordinates[0][1] -= 2; 
+      figure->coordinates[1][0]--;
+      figure->coordinates[1][1]--;
+      figure->coordinates[3][0]++; 
+      figure->coordinates[3][1]++;
       break;
     default:
       break;

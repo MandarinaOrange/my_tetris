@@ -174,7 +174,7 @@ int game_change_figure(Figure* figure, Figure* next_fig, WINDOW *wind, Area* are
 
   game_area_scan(area);
 
-  figure->type = FUCK;//next_fig->type;
+  figure->type = UGOL_G;//next_fig->type;
   start_coordinates(figure);
   next_fig->type = rand() % 8;
   mvwprintw(wind, 1, 1, "NEXT IS %d", next_fig->type);
