@@ -75,8 +75,6 @@ void change_area(Area* area, Figure* figure_location);
 void change_rotate_right(Figure* figure);
 void change_rotate_left(Figure* figure);
 void rotate_right(Area* area, Figure* figure);
-void test_rotate_right(Figure* figure, Figure* test_figure);
-//void test_rotate_left(Figure* figure, Figure* test_figure);
 void clean_rotate(Area* area, Figure* figure);
 
 
@@ -102,6 +100,8 @@ void move_right_ugol_g(Area* area, Figure* figure);
 int can_move_right_ugol_g(Area* area, Figure* figure);
 void move_down_ugol_g(Area* area, Figure* figure);
 int can_move_down_ugol_g(Area* area, Figure* figure);
+void rotate_right_ugol_g(Area* area, Figure* figure);
+void test_rotate_right_ugol_g(Figure* figure);
 
 
 //--------------UGOL_L---------------------
@@ -115,7 +115,8 @@ void move_right_ugol_l(Area* area, Figure* figure);
 int can_move_right_ugol_l(Area* area, Figure* figure);
 void move_down_ugol_l(Area* area, Figure* figure);
 int can_move_down_ugol_l(Area* area, Figure* figure);
-
+void rotate_right_ugol_l(Area* area, Figure* figure);
+void test_rotate_right_ugol_l(Figure* figure);
 
 
 
@@ -143,6 +144,8 @@ void move_right_fuck(Area* area, Figure* figure);
 int can_move_right_fuck(Area* area, Figure* figure);
 void move_down_fuck(Area* area, Figure* figure);
 int can_move_down_fuck(Area* area, Figure* figure);
+void rotate_right_fuck(Area* area, Figure* figure);
+void test_rotate_right_fuck(Figure* figure);
 
 
 
@@ -158,6 +161,8 @@ void move_right_vverh(Area* area, Figure* figure);
 int can_move_right_vverh(Area* area, Figure* figure);
 void move_down_vverh(Area* area, Figure* figure);
 int can_move_down_vverh(Area* area, Figure* figure);
+void rotate_right_vverh(Area* area, Figure* figure);
+void test_rotate_right_vverh(Figure* figure);
 
 
 
@@ -174,6 +179,8 @@ void move_right_vniz(Area* area, Figure* figure);
 int can_move_right_vniz(Area* area, Figure* figure);
 void move_down_vniz(Area* area, Figure* figure);
 int can_move_down_vniz(Area* area, Figure* figure);
+void rotate_right_vniz(Area* area, Figure* figure);
+void test_rotate_right_vniz(Figure* figure);
 
 
 

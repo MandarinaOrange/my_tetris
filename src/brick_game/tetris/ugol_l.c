@@ -291,3 +291,52 @@ int can_move_down_ugol_l(Area* area, Figure* figure) {
   }
   return result;
 }
+
+void rotate_right_ugol_l(Area* area, Figure* figure) {
+  Figure test_figure;
+  test_figure.rotation = figure->rotation;
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 2; j++) {
+      test_figure.coordinates[i][j] = figure->coordinates[i][j];
+    }
+  }
+  test_rotate_right_ugol_l(&test_figure);
+  int code = 0;
+  /*for (int i = 0; i < 4; i++) {
+    if (area->field[test_figure.coordinates[i][0]][test_figure.coordinates[i][1]] != FREE) code = 1;
+  }*/
+
+  if (code == 0) {
+    clean_rotate(area, figure);
+    test_rotate_right_ugol_l(figure);
+    change_rotate_right(figure);
+    change_area(area, figure);
+  }
+
+}
+
+void test_rotate_right_ugol_l(Figure* figure) {
+  switch(figure->rotation) {
+    case UP:
+    case DOWN:
+      figure->coordinates[0][0]++;
+      figure->coordinates[0][1]--; 
+      figure->coordinates[2][0]--;
+      figure->coordinates[2][1]++;
+      figure->coordinates[3][0] -= 2; 
+      figure->coordinates[3][1] += 2;
+      break; 
+    case LEFT:
+    case RIGHT:
+      figure->coordinates[0][0]--;
+      figure->coordinates[0][1]++; 
+      figure->coordinates[2][0]++;
+      figure->coordinates[2][1]--;
+      figure->coordinates[3][0] += 2; 
+      figure->coordinates[3][1] -= 2;
+      break;
+    default:
+      break;
+ 
+  }
+}

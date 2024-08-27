@@ -225,24 +225,23 @@ void rotate_right(Area* area, Figure* figure) {
   case PALKA:
     rotate_right_palka(area, figure);
     break;
-  /*case UGOL_G:
-    test_rotate_right_ugol_g(area, figure);
+  case UGOL_G:
+    rotate_right_ugol_g(area, figure);
     break;
   case UGOL_L:
-    test_rotate_right_ugol_l(area, figure);
+    rotate_right_ugol_l(area, figure);
     break;
   case KVADRAT:
-    test_rotate_right_kvadrat(area, figure);
     break;
   case VVERH:
-    test_rotate_right_vverh(area, figure);
+    rotate_right_vverh(area, figure);
     break;
   case FUCK:
-    test_rotate_right_fuck(area, figure);
+    rotate_right_fuck(area, figure);
     break;
   case VNIZ:
-    test_rotate_right_vniz(area, figure);
-    break;*/
+    rotate_right_vniz(area, figure);
+    break;
   default:
     break;
 }
@@ -253,29 +252,3 @@ void clean_rotate(Area* area, Figure* figure) {
   }
 }
 
-void test_rotate_left(Figure* figure, Figure* test_figure) {
-  /*switch (figure->type) {
-  case PALKA:
-    move_right_palka(area, figure);
-    break;
-  case UGOL_G:
-    move_right_ugol_g(area, figure);
-    break;
-  case UGOL_L:
-    move_right_ugol_l(area, figure);
-    break;
-  case KVADRAT:
-    move_right_kvadrat(area, figure);
-    break;
-  case VVERH:
-
-    break;
-  case FUCK:
-
-    break;
-  case VNIZ:
-
-  default:
-    break;
-}*/
-}
